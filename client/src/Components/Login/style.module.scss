@@ -1,0 +1,113 @@
+// .homePage{
+//     height: 100vh;
+//     width: 100vw;
+//     display: flex;
+// }
+
+.signinWrapper{
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    background-color: bisque;
+    border-radius: 50px;
+    padding-left: 15px;
+    padding-bottom: 30px;
+}
+
+.textPart{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.divider{
+    margin-top: 40px;
+    width: 5px;
+    margin-right: 20px;
+    margin-left: 20px;
+    border-left: 2px solid black;
+}
+
+.logoPart{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 30px;
+}
+
+.logo{
+    width: 300px;
+    height: 300px;
+}
+
+.welcome{
+    font-size: 60px;
+}
+
+.subTitle{
+    font-size: 30px;
+    // margin-bottom: 10px;
+}
+
+.inputWrapper {
+    display: flex;
+    flex-direction: column;
+    // width: 50%;
+    gap: 30px;
+}
+
+.inputText {
+    // height: 30px;
+    border-radius: 30px;
+    margin-right: 10px;
+    padding: 10px;
+    width: 200px;
+}
+
+.inputPassword {
+    // height: 25px;
+    border-radius: 30px;
+    margin-right: 10px;
+    padding: 10px;
+    width: 200px;
+}
+
+.passwordWrapper {
+    display: flex;
+}
+
+.eyecon {
+    display: flex;
+    align-items: center;
+}
+
+.submitButton {
+    height: 35px;
+    width: 150px;
+    font-size: 20px;
+    border-radius: 30px;
+    background-color: dodgerblue;
+    cursor: pointer;
+
+    &:hover {
+        border: 3px solid black;
+        // background-color: red;
+        box-shadow: 5px 5px 5px grey;
+    }
+
+    &:active {
+        background-color: red;
+    }
+}
+
+.noAccount {
+    font-size: 20px;
+}
+
+.signUp {
+    font-size: 20px;
+    color: dodgerblue;
+    font-weight: 700;
+    text-decoration: underline;
+    cursor: pointer;
+}

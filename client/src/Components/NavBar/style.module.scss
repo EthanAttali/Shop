@@ -1,0 +1,34 @@
+.navBar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    background: linear-gradient(135deg, #fdf6ec, #e6d3b3, #d8c29d);
+}
+
+.shopName{
+    padding-left: 10px;
+}
+
+.rightPart{
+    display: flex;
+    gap: 20px;
+    padding-right: 10px;
+    align-items: center;
+}
+
+.proposition{
+    border: 1px solid black;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:hover{
+        box-shadow: 2px 2px 5px #000000;
+    }
+}
+
+.settings{
+    padding-top: 5px;
+}
