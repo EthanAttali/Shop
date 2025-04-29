@@ -78,14 +78,13 @@ const SignUp = () => {
             if(Object.keys(errors).length === 0){
                 try {
                     const res = await signUpAxios(formik);
-                
                     if (res.status !== 201) {
                         toast.error(res.data.error || 'Unexpected error');
                     } else {
                         toast.success('Registration succeeded');
-                        localStorage.setItem('id', res.data.user.id);
-                        localStorage.setItem('user', JSON.stringify(res.data.user));
-                        localStorage.setItem('token', res.data.token);
+                        sessionStorage.setItem('id', res.data.user.id);
+                        sessionStorage.setItem('user', JSON.stringify(res.data.user));
+                        sessionStorage.setItem('token', res.data.token);
                         await formik.submitForm();
                         formik.resetForm();
                     }

@@ -21,7 +21,6 @@ const Signin = () => {
         enableReinitialize: true, 
         validateOnChange:true, 
         validate:(values) => {
-            console.log('values:', values)
             const errors: any = {};
             if(values.userName.trim() === ''){
                 errors.userName = 'Username Required'
@@ -64,9 +63,9 @@ const Signin = () => {
                 }
                 else{
                     toast.success('Connection succeeded');
-                    localStorage.setItem('id', res.data.user.id);
-                    localStorage.setItem('user', JSON.stringify(res.data.user));
-                    localStorage.setItem('token', res.data.token);
+                    sessionStorage.setItem('id', res.data.user.id);
+                    sessionStorage.setItem('user', JSON.stringify(res.data.user));
+                    sessionStorage.setItem('token', res.data.token);
                     await formik.submitForm();
                     formik.resetForm();
                 }

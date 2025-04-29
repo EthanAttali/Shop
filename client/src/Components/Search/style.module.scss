@@ -1,0 +1,23 @@
+.formControl{
+    :global .MuiFormLabel-root{
+        color: white !important;
+    }
+
+    // :global .
+
+}
+
+.inputSearch {
+    // background-color: red;
+    
+}
+
+:global .MuiInput-root{
+    &::before{
+        border-bottom: 1px solid white !important;
+    }
+
+    &::after{
+        border-bottom: 1px solid white !important;
+    }
+}

@@ -1,11 +1,11 @@
-import { redirect, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import style from './style.module.scss';
 import SettingsIcon from '@mui/icons-material/Settings';
 
 const NavBar = () => {
 
     const navigate = useNavigate();
-    const user = JSON.parse(localStorage.getItem('user') || '');
+    const user = JSON.parse(sessionStorage.getItem('user') || '');
 
     const moveToHome = () => {
         navigate(`/home`, {replace: true});

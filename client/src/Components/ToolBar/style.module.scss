@@ -1,0 +1,36 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    background: linear-gradient(-25deg, #a9a9a8, #565655, #1d1d1c);
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    color: white;
+}
+
+.leftPart{
+    display: flex;
+    flex-direction: row;
+    padding-left: 10px;
+}
+
+.middlePart {
+    display: flex;
+    gap: 50px;
+    margin: auto;
+}
+
+.rightPart {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-right: 10px;
+    gap: 30px;
+}
+
+.category {
+    cursor: pointer;
+    &:hover {
+        text-decoration: underline;
+    }
+}

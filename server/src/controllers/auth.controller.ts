@@ -10,10 +10,10 @@ export const login = async(req: Request, res: Response):Promise<any> => {
     try{
         const {username, password} = req.body;
         const user = await getUserByUserName(username);
-        if(!user) return res.status(401).json({err: 'NOT_FOUND'});
+        if(!user) return res.status(401).json({error: 'USER_NOT_FOUND'});
         
         const isPasswordValid = await bcrypt.compare(password, user.password);
-        if(!isPasswordValid) return res.status(401).json({err: 'PASSWORD_INVALID'});
+        if(!isPasswordValid) return res.status(401).json({error: 'PASSWORD_INVALID'});
 
         const token = jwt.sign(
             {id: user.id, username: user.username},
@@ -25,6 +25,6 @@ export const login = async(req: Request, res: Response):Promise<any> => {
     }
     catch(error){
         console.error(error);
-        return res.status(500).json({err: 'Server error'});
+        return res.status(500).json({error: 'Server error'});
     }
 }
