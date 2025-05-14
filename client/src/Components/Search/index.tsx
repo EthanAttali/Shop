@@ -10,13 +10,13 @@ const SearchBar = () => {
                     Search
                 </InputLabel>
                 <Input
-                id="input-with-icon-adornment"
-                startAdornment={
-                    <InputAdornment position="start">
-                        <SearchIcon sx={{color: 'white'}}/>
-                    </InputAdornment>
-                }
-                className={style.inputSearch}
+                    id="input-with-icon-adornment"
+                    startAdornment={
+                        <InputAdornment position="start">
+                            <SearchIcon sx={{color: 'white'}}/>
+                        </InputAdornment>
+                    }
+                    className={style.inputSearch}
                 />
             </FormControl>
       </Box>

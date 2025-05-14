@@ -9,8 +9,12 @@
 
 .inputSearch {
     // background-color: red;
-    
+    :global .MuiInputBase-input /*-MuiInput-input*/ {
+        color: white !important;
+    }
 }
+
+// :global 
 
 :global .MuiInput-root{
     &::before{

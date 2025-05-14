@@ -1,0 +1,28 @@
+.productCard {
+    // border: 2px solid black;
+    width: 250px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+.img{
+    width: 250px;
+    height: 200px;
+    border-radius: 20px;
+}
+
+.bottomCard{
+    display: flex;
+    flex-direction: column;
+}
+
+.pricePart{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.reduction{
+    text-decoration: line-through;
+}

@@ -14,7 +14,7 @@ const ToolBar = () => {
                 <div className={style.category}>TEE-SHIRTS</div>
             </div>
             <div className={style.rightPart}>
-                <div>
+                <div className={style.search}>
                     <SearchBar />
                 </div>
                 <div className={style.cart}>
