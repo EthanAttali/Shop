@@ -1,20 +1,27 @@
 .productCard {
     // border: 2px solid black;
-    width: 250px;
-    height: 300px;
+    width: 400px;
+    // height: 300px;
     display: flex;
     flex-direction: column;
+    // margin-right: 30px;
+    gap: 20px;
+    // flex-wrap: wrap;
 }
 
 .img{
-    width: 250px;
-    height: 200px;
+    width: 400px;
+    height: 300px;
     border-radius: 20px;
 }
 
 .bottomCard{
     display: flex;
     flex-direction: column;
+}
+
+.name{
+    font-size: 18px;
 }
 
 .pricePart{
@@ -25,4 +32,15 @@
 
 .reduction{
     text-decoration: line-through;
+}
+
+.price{
+    font-size: 22px;
+    font-weight: 400;
+}
+
+.reducePrice {
+    color: red;
+    font-size: 22px;
+    font-weight: 600;
 }

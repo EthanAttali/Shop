@@ -1,10 +1,18 @@
 export interface Product{
     id: number;
-    name: string;
+    product_name: string;
     description: string;
     price: number;
     stock: number;
-    category_id: number;
+    image_path: string;
     category_name: string;
-    percentage_discount: number;
+    newprice: null | number;
+}
+
+export enum CATEGORIES {
+    SHOES = 'shoes', 
+    CAPS = 'caps',
+    WATCHES = 'watches',
+    TEESHIRTS = 'tee-shirts',
+    ALL = 'all' 
 }

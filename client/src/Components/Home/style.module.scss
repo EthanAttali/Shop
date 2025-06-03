@@ -1,9 +1,37 @@
 .homePage{
-    // display: flex;
+    display: flex;
+    flex-direction: column;
     width: 100%;
+}
+
+.productContent{
+    display: flex;
+    flex-direction: row;
 }
 
 .productList {
     display: flex;
-    margin: 20px 0px 0px 20px;
+    flex: 1;
+    margin: 30px 0px 20px 100px;
+    width: 80%;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.sideBar{
+    width: 20%;
+    // background-color: aqua;
+    border-left: 2px solid black;
+    border-top: 2px solid black;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    padding: 10px 0px 0px 10px;
+}
+
+.bottomPage{
+    height: 400px;
+    background-color: black;
+    color: white;
 }

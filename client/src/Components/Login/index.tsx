@@ -31,7 +31,7 @@ const Signin = () => {
             return errors;
         },
         onSubmit: async(_values) => {
-            navigate(`/home`, {replace: true})
+            navigate(`/products`, {replace: true})
         }
     })
 

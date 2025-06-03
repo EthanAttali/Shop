@@ -30,9 +30,20 @@
 
 .category {
     cursor: pointer;
+    padding: 5px;
     &:hover {
-        text-decoration: underline;
+        border: 1px solid white;
+        padding: 5px;
+        border-radius: 10px;
+        box-shadow: 5px 5px 1px rgb(207, 207, 207);
     }
+}
+
+.selected{
+    border: 1px solid white;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 1px rgb(207, 207, 207);
 }
 
 .search{
