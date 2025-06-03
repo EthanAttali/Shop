@@ -8,6 +8,8 @@ interface ProductProps {
 
 const ProductCard = ({product}: ProductProps) => {
 
+    console.log(product);
+    
     return(
         <div className={style.productCard}>
             <div className={style.img}><img src={product.image_path} alt='Test' className={style.img}/></div>
