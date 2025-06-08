@@ -4,6 +4,16 @@ import { useShopContext } from '../../context/useShopContext';
 import ProductCard from '../Product';
 import ToolBar from '../ToolBar';
 import style from './style.module.scss';
+import SupremeLogo from '/photos/Supreme.jpg';
+import TissotLogo from '/photos/tissot.jpg';
+import PumaLogo from '/photos/puma.jpg';
+import AsicsLogo from '/photos/asics.jpg';
+import VansLogo from '/photos/vans.jpg';
+import RolexLogo from '/photos/Rolex.jpg';
+import TagHeuerLogo from '/photos/tagheuer.jpg';
+import OmegaLogo from '/photos/omega.jpg';
+import AudemarsPiguetLogo from '/photos/Audemars-Piguet_logo.jpg';
+import AdidasLogo from '/photos/adidas.jpg';
 
 const Home = () => { 
 
@@ -92,7 +102,21 @@ const Home = () => {
                   })}
             </div>
           </div>
-          <div className={style.bottomPage}>Remerciements</div>
+          <div className={style.bottomPage}>
+            <p className={style.text}>Our partners</p>
+            <div className={style.gridPartners}>
+              <img src={SupremeLogo} className={style.logo}/>
+              <img src={TissotLogo} className={style.logo}/>
+              <img src={PumaLogo} className={style.logo}/>
+              <img src={AsicsLogo} className={style.logo}/>
+              <img src={VansLogo} className={style.logo}/>
+              <img src={RolexLogo} className={style.logo}/>
+              <img src={TagHeuerLogo} className={style.logo}/>
+              <img src={OmegaLogo} className={style.logo}/>
+              <img src={AudemarsPiguetLogo} className={style.logo}/>
+              <img src={AdidasLogo} className={style.logo}/>
+            </div>
+          </div>
       </div>
   );
 }

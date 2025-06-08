@@ -35,3 +35,22 @@
     background-color: black;
     color: white;
 }
+
+.text{
+    text-align: center;
+    font-size: 24px;
+}
+
+.logo{
+    width: 150px;
+    height: 150px;
+}
+
+.gridPartners{
+    // display: flex;
+    // flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+    width: 750px;
+    margin: auto;
+}

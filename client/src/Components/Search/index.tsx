@@ -3,6 +3,8 @@ import SearchIcon from '@mui/icons-material/Search';
 import style from './style.module.scss';
 
 const SearchBar = () => {
+
+    
     return(
         <Box sx={{ '& > :not(style)': { m: 1 } }}>
             <FormControl variant="standard" className={style.formControl}>
