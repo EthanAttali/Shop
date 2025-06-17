@@ -9,7 +9,6 @@ interface ProductProps {
 
 const ProductCard = ({product}: ProductProps) => {
 
-    // console.log(product);
     const [imageHover, setImageHover] = useState(false);
 
     const updateImageHover = () => {

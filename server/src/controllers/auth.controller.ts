@@ -21,7 +21,7 @@ export const login = async(req: Request, res: Response):Promise<any> => {
             {expiresIn: '1h'}
         );
 
-        return res.status(200).json({user: {id: user.id, username: user.username, name: user.name, role: user.role}, token});
+        return res.status(200).json({user: {id: user.id, username: user.username, name: user.name,email: user.email, role: user.role}, token});
     }
     catch(error){
         console.error(error);

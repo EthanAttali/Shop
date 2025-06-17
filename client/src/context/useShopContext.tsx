@@ -46,6 +46,10 @@ export const ShopProvider = ({ children }: ShopProviderProps) => {
         handleFilterProducts();
     }, [filteredText])
 
+    useEffect(() => {
+        handleFilterProducts();
+    }, [products])
+
     return (
         <ShopContext.Provider value={{ category, handleCategory, products, handleProducts,
             filteredProducts, handleFilterProducts, filteredText, handleInputSearch}}>

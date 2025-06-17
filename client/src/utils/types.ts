@@ -16,3 +16,9 @@ export enum CATEGORIES {
     TEESHIRTS = 'tee-shirts',
     ALL = 'all' 
 }
+
+export interface User {
+    username: string;
+    name: string;
+    email: string;
+}

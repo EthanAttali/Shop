@@ -21,7 +21,7 @@ const Signin = () => {
         enableReinitialize: true, 
         validateOnChange:true, 
         validate:(values) => {
-            const errors: any = {};
+            const errors: Partial<Record<keyof SignInFormValues, string>> = {};
             if(values.userName.trim() === ''){
                 errors.userName = 'Username Required'
             }

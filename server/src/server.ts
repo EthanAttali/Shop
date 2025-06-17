@@ -4,13 +4,18 @@ import cors from 'cors';
 dotenv.config();
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
+const twilio = require('twilio');
 
 import userRoutes from './routes/user.routes';
 import authRoutes from './routes/auth.routes';
 import productRoutes from './routes/products.routes';
+import smsRoutes from './routes/sms.routes';
 
 const app = express();
 app.use(express.json());
+app.use(cors());
+
+const client = twilio(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
 
 const corsParameters = {
     origin: process.env.CLIENT_URL,
@@ -30,7 +35,9 @@ app.use(cookieParser())
 
 app.use('/api/users', userRoutes);
 app.use('/api/auth', authRoutes);
-app.use('/api/products', productRoutes)
+app.use('/api/products', productRoutes);
+
+app.use('/api/sms', smsRoutes);
 
 const PORT = process.env.PORT || 3000 ;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
