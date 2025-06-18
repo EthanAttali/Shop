@@ -17,8 +17,22 @@ export enum CATEGORIES {
     ALL = 'all' 
 }
 
+export enum ROLE {
+    VIEWER = "VIEWER", 
+    ADMIN = "ADMIN"
+}
+
 export interface User {
+    id: number;
     username: string;
+    name: string;
+    email: string;
+    role: ROLE
+}
+
+export interface PersonalUserInfo {
+    username: string;
+    password: string;
     name: string;
     email: string;
 }

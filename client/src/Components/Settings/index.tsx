@@ -2,16 +2,13 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import { FormikProps, useFormik } from 'formik';
 import { useEffect } from 'react';
 import style from './style.module.scss';
-// import style from './style.module.scss'
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { ChangeEvent, useState } from 'react';
 import { toast } from 'react-toastify';
 import logo from '../../assets/Logo.png';
-import { checkWhatsappCode, sendWhatsappCode } from '../../AxiosRequests/settings';
-import { signUpAxios } from '../../AxiosRequests/signup';
-import SignUpFormValues from '../../utils/SignUpFormValues';
-import { User } from '../../utils/types';
+import { checkWhatsappCode, sendWhatsappCode, updatePersonalInfos } from '../../AxiosRequests/settings';
+import { PersonalUserInfo, User } from '../../utils/types';
 
 const Settings = () => {
 
@@ -30,18 +27,18 @@ const Settings = () => {
 
     // const navigate = useNavigate();
 
-    const formik: FormikProps<SignUpFormValues> = useFormik<SignUpFormValues>({
+    const formik: FormikProps<PersonalUserInfo> = useFormik<PersonalUserInfo>({
             initialValues:{
-                userName: user?.username, 
+                username: user?.username, 
                 name:user?.name,
                 email:user?.email,
                 password: ''
-            } as SignUpFormValues, 
+            } as PersonalUserInfo, 
             enableReinitialize: true, 
             validateOnChange:true, 
             validate:(values) => {
                 const errors: any = {};
-                if(values.userName.trim() === ''){
+                if(values.username.trim() === ''){
                     errors.userName = 'Username Required'
                 }
                 if(values.name.trim() === ''){
@@ -64,7 +61,7 @@ const Settings = () => {
         })
     
         const changeUserName = (e: ChangeEvent<HTMLInputElement>) => {
-            formik.setFieldValue('userName', e.target.value);
+            formik.setFieldValue('username', e.target.value);
         }
         
         const changeName = (e: ChangeEvent<HTMLInputElement>) => {
@@ -93,20 +90,26 @@ const Settings = () => {
             const errors = await isFormValid();
             if(Object.keys(errors).length === 0){
                 try {
-                    const res = await signUpAxios(formik);
-                    if (res.status !== 201) {
+                    console.log(formik)
+                    console.log(user?.id)
+                    const res = await updatePersonalInfos(formik, user!.id);
+                    if (res.status !== 200) {
                         toast.error(res.data.error || 'Unexpected error');
                     } else {
-                        toast.success('Registration succeeded');
-                        sessionStorage.setItem('id', res.data.user.id);
-                        sessionStorage.setItem('user', JSON.stringify(res.data.user));
+                            toast.success('Successfully updated');
+                            sessionStorage.setItem('id', res.data.user.id);
+                            sessionStorage.setItem('user', JSON.stringify({
+                                username: formik.values.username, 
+                                name: formik.values.name,
+                                email: formik.values.email, 
+                                role: user?.role}));
                         sessionStorage.setItem('token', res.data.token);
                         await formik.submitForm();
                         formik.resetForm();
                     }
                 } catch (err: any) {
                     // Si backend a bien envoyé une erreur personnalisée
-                    const errorMsg = err?.response?.data?.error || 'An unexpected error occurred';
+                    const errorMsg = err?.response?.data?.error /*|| 'An unexpected error occurred'*/;
                     toast.error(errorMsg); // Affiche dans une notification
                 }
             }
@@ -143,99 +146,101 @@ const Settings = () => {
             <div className={style.title}>Settings <SettingsIcon className={style.settingsIcon}/></div>
             <div className={style.fieldsWrapper}>
                 <div className={style.textPart}>
-                    <div className={style.inputWrapper}>
-                        <div className={style.field}>
-                            <span>UserName:</span>
-                            <input type='text' 
-                                required
-                                name='username'
-                                value={formik.values.userName}
-                                onChange={changeUserName}
-                                placeholder='Username'
-                                className={style.inputText}
-                            />
-                        </div>
-                        <div className={style.field}>
-                            <span>Name:</span>
-                            <input type='text' 
-                                required
-                                name='name'
-                                value={formik.values.name}
-                                onChange={changeName}
-                                placeholder='Name'
-                                className={style.inputText}
-                            />
-                        </div>
-                        <div className={style.field}>
-                            <span>Email:</span>
-                            <input type='email' 
-                                required
-                                name='email'
-                                value={formik.values.email}
-                                onChange={changeEmail}
-                                placeholder='Email'
-                                className={style.inputText}
-                            />
-                        </div>
-                        <div className={style.field}>
-                            {
-                            codeSent ?
-                                codeConfirm?
-                                    <div /*className={style.field}*/>
-                                        <span>Password:</span>
-                                        <div className={style.passwordWrapper}>
-                                            <input type={eyeOpen ? 'text' : 'password'} 
-                                                name='password'
-                                                value={formik.values.password}
-                                                onChange={changePassword}
-                                                placeholder='Password'
-                                                className={style.inputPassword}
-                                                /> 
-                                            <span onClick={handleToggle} className={style.eyecon}>
-                                                {
-                                                    eyeOpen ?
-                                                    <VisibilityIcon /> 
-                                                    :
-                                                    <VisibilityOffIcon />
-                                                }
-                                            </span>
+                    <div className={style.topPart}>
+                        <div className={style.inputWrapper}>
+                            <div className={style.field}>
+                                <span>UserName:</span>
+                                <input type='text' 
+                                    required
+                                    name='username'
+                                    value={formik.values.username}
+                                    onChange={changeUserName}
+                                    placeholder='Username'
+                                    className={style.inputText}
+                                />
+                            </div>
+                            <div className={style.field}>
+                                <span>Name:</span>
+                                <input type='text' 
+                                    required
+                                    name='name'
+                                    value={formik.values.name}
+                                    onChange={changeName}
+                                    placeholder='Name'
+                                    className={style.inputText}
+                                />
+                            </div>
+                            <div className={style.field}>
+                                <span>Email:</span>
+                                <input type='email' 
+                                    required
+                                    name='email'
+                                    value={formik.values.email}
+                                    onChange={changeEmail}
+                                    placeholder='Email'
+                                    className={style.inputText}
+                                />
+                            </div>
+                            <div className={style.field}>
+                                {
+                                codeSent ?
+                                    codeConfirm?
+                                        <div /*className={style.field}*/>
+                                            <span>Password:</span>
+                                            <div className={style.passwordWrapper}>
+                                                <input type={eyeOpen ? 'text' : 'password'} 
+                                                    name='password'
+                                                    value={formik.values.password}
+                                                    onChange={changePassword}
+                                                    placeholder='Password'
+                                                    className={style.inputPassword}
+                                                    /> 
+                                                <span onClick={handleToggle} className={style.eyecon}>
+                                                    {
+                                                        eyeOpen ?
+                                                        <VisibilityIcon /> 
+                                                        :
+                                                        <VisibilityOffIcon />
+                                                    }
+                                                </span>
+                                            </div>
                                         </div>
-                                    </div>
+                                    :
+                                    <div className={style.codeVerification}>
+                                        <input 
+                                            type='text' 
+                                            name='codeVerif' 
+                                            onChange={updateCode} 
+                                            value={code}
+                                            placeholder='Enter code'
+                                            className={style.inputPassword}
+                                        />
+                                        <div className={style.groupButton}>
+                                            <button onClick={validateCode} className={style.button}>Submit</button>
+                                            <button onClick={sendMessage} className={style.button}> Resend</button>
+                                        </div>
+                                    </div>   
                                 :
-                                <div className={style.codeVerification}>
-                                    <input 
-                                        type='text' 
-                                        name='codeVerif' 
-                                        onChange={updateCode} 
-                                        value={code}
-                                        placeholder='Enter code'
-                                        className={style.inputPassword}
-                                    />
-                                    <div className={style.groupButton}>
-                                        <button onClick={validateCode} className={style.button}>Submit</button>
-                                        <button onClick={sendMessage} className={style.button}> Resend</button>
-                                    </div>
-                                </div>   
-                            :
-                            <>
-                                <div>Update your password ? Click to receive confirmation code</div>
-                                <button onClick={sendMessage}> Send Code</button>
-                            </>
-                        }
+                                <>
+                                    <div>Update your password ? Click to receive confirmation code</div>
+                                    <button onClick={sendMessage}> Send Code</button>
+                                </>
+                            }
+                            </div>
+                        </div>
+                        <div className={style.divider}></div>
+                        <div className={style.logoPart}>
+                            <img src={logo} className={style.logo}/>
                         </div>
                     </div>
-                    <div className={style.divider}></div>
-                    <div className={style.logoPart}>
-                        <img src={logo} className={style.logo}/>
-                    </div>
+                    <input 
+                    type='button'
+                    value={'Update'}
+                    onClick={submitForm}
+                    className={style.submitButton}
+                    />
                 </div>
             </div>
-            <input 
-                type='button'
-                value={'Update'}
-                onClick={submitForm}
-                className={style.submitButton}
-            />
         </div>
     )
 }

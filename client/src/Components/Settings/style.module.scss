@@ -16,21 +16,11 @@
 
 .fieldsWrapper{
     display: flex;
-    // flex-direction: row;
+    // flex-direction: column;
     background-color: bisque;
     margin: auto;
     width: 35%;
     border-radius: 15px;
-    // flex-direction: column;
-}
-
-.inputWrapper{
-    // display: flex;
-    // flex-direction: row;
-    // margin: auto;
-    // border-radius: 50px;
-    // padding-left: 30px;
-    // padding-bottom: 30px;
 }
 
 .field{
@@ -41,7 +31,7 @@
 
 .textPart{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     width: 100%;
 }
@@ -55,11 +45,9 @@
     border-radius: 50px;
     padding-left: 30px;
     padding-bottom: 30px;
-    // margin-top: 10%;
 }
 
 .divider{
-    // margin-top: 40px;
     width: 5px;
     margin-right: 20px;
     margin-left: 20px;
@@ -68,7 +56,6 @@
 }
 
 .inputText {
-    // height: 30px;
     border-radius: 30px;
     margin-right: 10px;
     padding: 10px;
@@ -76,7 +63,6 @@
 }
 
 .inputPassword {
-    // height: 25px;
     border-radius: 30px;
     margin-right: 10px;
     padding: 10px;
@@ -93,7 +79,7 @@
 }
 
 .submitButton {
-    margin-top: 20px;
+    margin-bottom: 20px;
     height: 35px;
     width: 150px;
     font-size: 20px;
@@ -103,7 +89,6 @@
 
     &:hover {
         border: 3px solid black;
-        // background-color: red;
         box-shadow: 5px 5px 5px grey;
     }
 
@@ -143,7 +128,15 @@
     border:2px solid black;
      &:hover {
         border: 2px solid black;
-        // background-color: red;
-        // box-shadow: 5px 5px 5px grey;
     }
+}
+
+.submitContainer{
+    display: flex;
+}
+
+.topPart{
+    display: flex;
+    flex-direction: row; 
+    align-items:center;
 }
