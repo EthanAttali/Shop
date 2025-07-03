@@ -5,6 +5,10 @@ import SignUp from '../Components/SignUp';
 import NavBar from '../Components/NavBar';
 import style from './style.module.scss';
 import classnames from 'classnames';
+import About from '../Components/About';
+import Contact from '../Components/Contact';
+import Settings from '../Components/Settings';
+import ProductDetail from '../Components/ProductDetail';
 
 const Layout = () => {
   const location = useLocation();
@@ -28,9 +32,10 @@ const MainRouter = () => {
           <Route path="/signin" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/products" element={<Home />} />
-          <Route path="/about" element={<div> About</div>} />
-          <Route path='/contact' element={<div>Contact</div>} />
-          <Route path='/settings' element={<div>Settings</div>} />
+          <Route path='/products/:id' element={<ProductDetail />} />
+          <Route path="/about" element={<About/>} />
+          <Route path='/contact' element={<Contact />} />
+          <Route path='/settings' element={<Settings />} />
         </Route>
       </Routes>
     {/* </Layout> */}

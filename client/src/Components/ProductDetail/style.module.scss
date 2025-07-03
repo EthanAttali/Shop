@@ -1,0 +1,110 @@
+.productContainer{
+    display: flex;
+    padding-top: 40px;
+    padding-left: 100px;
+    background-color: #F9F6F2;
+    flex: 1 1 auto;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.product{
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+}
+
+.productDetail{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.img{
+    border-radius: 30px;
+    width: 600px;
+    height: 600px;
+}
+
+.title{
+    font-size: 30px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    color: #2D2D2D;
+    gap: 10px;
+}
+
+.new{
+    font-size: 12px;
+    padding: 4px 8px;
+    font-weight: 600;
+    color: #2D2D2D;
+    border-radius: 999px;
+    background-color: #E4CBAF;
+}
+
+.description {
+    font-size: 20px;
+}
+
+.price{
+    font-size: 25px;
+    color: #A0A0A0;
+}
+
+.reduction {
+    text-decoration: line-through;
+}
+
+.red {
+    color: red;
+}
+
+.stock {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+}
+
+.stockGroup{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cardGroup{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+}
+
+.buttonStock{
+    height: 25px !important;
+    background-color: #E4CBAF !important;
+    color: white !important;
+    min-width: 10px !important;
+    width: 25px;
+    border-radius: 100% !important;
+    font-size: 20px !important;
+}
+
+.inputQuantity{
+    width: 30px !important;
+    padding: 0 !important;
+}
+
+.inputQuantity :global .MuiInputBase-input {
+    text-align: center !important;
+    padding: 0 !important;
+}
+
+.card{
+    border: 2px solid #2e63f8 !important;
+    background-color: #2e63f8 !important;
+    color: #E4CBAF !important;
+    height: 35px !important;
+}
