@@ -24,7 +24,7 @@ const NavBar = () => {
     }
 
     const moveToSetting = () => {
-        navigate(`setting`, {replace: true})
+        navigate(`settings`, {replace: true})
     }
 
     return(

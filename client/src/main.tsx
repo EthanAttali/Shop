@@ -9,12 +9,13 @@ import { QueryClient, QueryClientProvider} from 'react-query';
 const queryClient = new QueryClient();
 
 createRoot(document.getElementById('root')!).render(
-  <StrictMode>
+  // <StrictMode>
     <ShopProvider>
       <QueryClientProvider client={queryClient}>
         <ToastContainer rtl position='bottom-right' />
         <MainRouter />
       </QueryClientProvider>
     </ShopProvider>
-  </StrictMode>,
+  // {/* </StrictMode> */}
+  ,
 )
